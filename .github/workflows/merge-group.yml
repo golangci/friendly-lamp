@@ -25,4 +25,4 @@ jobs:
             echo "head_sha: ${{ github.event.merge_group.head_sha }}"
             echo "head_ref: ${{ github.event.merge_group.head_ref }}"
       - name: git diff
-        run: git diff ${{ github.event.base_sha }}...${{ github.event.merge_group.head_sha }}
+        run: git diff ${{ github.event.merge_group.base_sha }}...${{ github.event.merge_group.head_sha }}
