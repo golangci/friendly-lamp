@@ -19,4 +19,4 @@ jobs:
       - name: git log
         run: git log --graph --pretty=tformat:'%Cred%h%Creset %Cblue%G?%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset' --branches --remotes
       - name: git diff
-        run: git diff HEAD~1
+        run: git diff ${{ github.event.base_sha }}...${{ github.event.merge_group.head_sha }}
