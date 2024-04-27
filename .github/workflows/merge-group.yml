@@ -18,5 +18,11 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: git log
         run: git log --graph --pretty=tformat:'%Cred%h%Creset %Cblue%G?%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ar)%Creset' --branches --remotes
+      - name: display
+        run: |
+            echo "base_sha: ${{ github.event.merge_group.base_sha }}"
+            echo "base_ref: ${{ github.event.merge_group.base_ref }}"
+            echo "head_sha: ${{ github.event.merge_group.head_sha }}"
+            echo "head_ref: ${{ github.event.merge_group.head_ref }}"
       - name: git diff
         run: git diff ${{ github.event.base_sha }}...${{ github.event.merge_group.head_sha }}
